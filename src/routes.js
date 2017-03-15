@@ -8,7 +8,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('main', {
       url: '/',
-      component: 'technologies'
+      component: 'messages'
     });
     /*
     .state('technologies', {
