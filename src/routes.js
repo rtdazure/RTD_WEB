@@ -8,9 +8,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('main', {
       url: '/',
-      component: 'questions' 
+      component: 'questions'
     });
-    /*
     .state('technologies', {
       url: '/technologies',
       component: 'technologies'
@@ -23,5 +22,4 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/questions',
       component: 'questions'
     });
-    */
 }
