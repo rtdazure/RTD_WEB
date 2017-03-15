@@ -1,0 +1,36 @@
+<div ng-if="!$ctrl.haveTheName">
+  <div class="welcome">
+    <h1>Write your name to start to chat</h1>
+    <div class="form">
+      <div class="form_info">
+        <form name="messagesNameForm" class="simple-form">
+          <section>
+            <label for="name">Name</label>
+            <input type="text" ng-model="user.name" id="name" name="name" required/>
+            <div class="error-msg" ng-show="messagesNameForm.name.$touched && messagesNameForm.name.$error.required">This field is required</div>
+          </section>
+          <section>
+            <button class="button" ng-disabled="!messagesNameForm.$valid" ng-click="$ctrl.chooseName(user.name)">Send</button>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if="$ctrl.haveTheName">
+  <div class="form">
+    <div class="form_info">
+      <h1>Please write a comment</h1>
+      <form name="messagesTextForm" class="simple-form">
+        <section>
+          <label for="message">Write message</label>
+          <textarea ng-model="$ctrl.message" id="message" name="message" required></textarea>
+          <div class="error-msg" ng-show="messagesTextForm.message.$touched && messagesTextForm.message.$error.required">This field is required</div>
+        </section>
+        <section>
+          <button class="button" ng-disabled="!messagesTextForm.$valid" ng-click="$ctrl.sendMessage()">Send</button>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>

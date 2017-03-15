@@ -1,0 +1,39 @@
+<div ng-if="!$ctrl.callDone">
+  <div class="welcome">
+    <h1>Let's keep in touch!</h1>
+    <h1>Please submit your info</h1>
+  </div>
+  <div class="form">
+    <div class="form_info">
+      <form name="questionsForm" class="simple-form">
+        <section>
+          <label for="name">Name</label>
+          <input type="text" ng-model="user.name" id="name" name="name" required/>
+          <div class="error-msg" ng-show="questionsForm.name.$touched && questionsForm.name.$error.required">This field is required</div>
+          <label for="email">E-mail</label>
+          <input type="email" ng-model="user.email" id="email" name="email" required/>
+          <div class="error-msg" ng-show="questionsForm.email.$touched && questionsForm.email.$error.required">This field is required.</div>
+          <div class="error-msg" ng-show="questionsForm.email.$touched && questionsForm.email.$error.email">This is not a valid email.</div>
+          <label for="technical">Technical area of interest</label>
+          <select type="text" ng-model="user.technical" id="technical" name="technical">
+            <option value="FE">FrontEnd</option>
+            <option value="iOS">iOS</option>
+            <option value="Android">Android</option>
+            <option value="Java">Java</option>
+            <option value="NET">.NET</option>
+          </select>
+          <div class="error-msg" ng-show="questionsForm.technical.$touched && questionsForm.technical.$error.required">This field is required.</div>
+        </section>
+        <section>
+          <button class="button" ng-disabled="!questionsForm.$valid" ng-click="$ctrl.update(user)">Send</button>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>
+<div ng-if="$ctrl.callDone">
+  <div class="welcome">
+    <img src="/../../images/icon_ok2.png" class="icon-ok-end"/>
+    <h1>Thanks for coming! <br/> We will be in contact!</h1>
+  </div>
+</div>
